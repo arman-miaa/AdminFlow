@@ -1,27 +1,9 @@
 import { MdKeyboardArrowDown } from "react-icons/md";
 import DashboardExtended from "../components/DashboardExtended";
+import RevenueOverview from "../components/RevenueOverview";
 
 const Dashboard = () => {
-  const revenueCards = [
-    {
-      title: "This Year Revenue",
-      amount: "$54,4162",
-      change: "+12.5%",
-      trend: "up",
-    },
-    {
-      title: "This Month Revenue",
-      amount: "$84379",
-      change: "+8.2%",
-      trend: "up",
-    },
-    {
-      title: "This Week Revenue",
-      amount: "$5403",
-      change: "+4.3%",
-      trend: "up",
-    },
-  ];
+
 
   const appointmentTypes = [
     { name: "General", count: 2574, color: "bg-blue-500" },
@@ -65,42 +47,10 @@ const Dashboard = () => {
 
   return (
     <div className="p-6 space-y-6">
-      {/* Revenue Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {revenueCards.map((card, index) => (
-          <div key={index} className="bg-white rounded-xl p-6 shadow-sm">
-            <h3 className="text-sm font-medium text-gray-600 mb-2">
-              {card.title}
-            </h3>
-            <div className="flex items-center justify-between">
-              <span className="text-2xl font-bold text-gray-900">
-                {card.amount}
-              </span>
-              <div className="flex items-center space-x-2">
-                <span className="text-sm text-green-600">{card.change}</span>
-                <div className="w-16 h-8 bg-gradient-to-r from-blue-400 to-purple-500 rounded opacity-20"></div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <RevenueOverview/>
+ 
 
-      {/* Main Revenue Card */}
-      <div className="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 rounded-xl p-6 text-white">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h3 className="text-lg font-medium opacity-90">
-              Your Total Revenue
-            </h3>
-            <p className="text-3xl font-bold">$54,4162</p>
-            <p className="text-sm opacity-75 flex items-center mt-1">
-              <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
-              Average growth
-            </p>
-          </div>
-          <div className="w-32 h-16 bg-white bg-opacity-20 rounded-lg"></div>
-        </div>
-      </div>
+ 
 
       {/* Tab Navigation */}
       <div className="bg-white rounded-xl shadow-sm">

@@ -37,7 +37,7 @@ const menuItems = [
       </div>
 
       {/* Navigation Menu */}
-   
+
       <nav className="flex-1 flex items-center justify-center mb-12">
         <ul className="space-y-1 px-3 w-full">
           {menuItems.map((item, index) => (
@@ -55,7 +55,9 @@ const menuItems = [
                 <item.icon className="w-5 h-5 mr-3" />
                 <span className="flex-1">{item.label}</span>
                 {item.hasNotification && (
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                  <div className=" bg-[#228380] rounded-full text-white px-1">
+                    16
+                  </div>
                 )}
               </NavLink>
             </li>
