@@ -1,16 +1,19 @@
-import { Outlet } from "react-router"
-import Navbar from "../shared/Navbar"
-import Sidebar from "../shared/Sidebar"
-
+import { Outlet } from "react-router";
+import Navbar from "../shared/Navbar";
+import Sidebar from "../shared/Sidebar";
 
 const MainLayout = () => {
   return (
-      <div>
-          <Navbar />
+    <div className="flex h-screen bg-[#ebedef]">
+      <Sidebar />
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <Navbar />
+        <main className="flex-1 overflow-auto">
           <Outlet />
-          <Sidebar/>
+        </main>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainLayout
+export default MainLayout;
