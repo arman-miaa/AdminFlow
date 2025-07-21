@@ -1,8 +1,13 @@
+import AnalyticsCards from "../components/AnalyticsCards"
+import SummaryPanel from "../components/SummaryPanel"
 
 
 const AppointmentTab = () => {
   return (
-    <div>AppointmentTab</div>
+    <div>
+      <SummaryPanel />
+      <AnalyticsCards/>
+    </div>
   )
 }
 
