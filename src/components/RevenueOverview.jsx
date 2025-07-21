@@ -10,7 +10,7 @@ const RevenueOverview = () => {
       percent: "+4.2%",
       compare: "Compare to last year",
       isDown: false,
-      color: "#3B82F6", // Blue
+      color: "#3B82F6", 
       chartData: [
         { value: 100 },
         { value: 400 },
