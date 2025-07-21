@@ -1,5 +1,6 @@
 import { ChevronDown } from "lucide-react";
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
+import DashboardSummaryStats from "./DashboardSummaryStats";
 
 const OverviewPanel = () => {
   const data = [
@@ -17,12 +18,7 @@ const OverviewPanel = () => {
     { name: 'Dec', value: 80 },
   ];
 
-  const appointmentTypes = [
-    { name: "General", count: 4573, color: "bg-blue-500", height: "60%" },
-    { name: "Cardio", count: 8412, color: "bg-teal-500", height: "80%" },
-    { name: "Dental", count: 1412, color: "bg-purple-500", height: "40%" },
-    { name: "Neuro", count: 2112, color: "bg-indigo-500", height: "50%" },
-  ];
+
 
   const topPractitioners = [
     { name: "Mario Claire", role: "Cardiologist", appointments: 82, avatar: "MC", online: true },
@@ -32,76 +28,18 @@ const OverviewPanel = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-100 p-6">
+    <div className="min-h-screen  p-6">
       {/* Periodic Summary Card */}
-      <div className="card bg-white shadow-lg">
+      <div className="card  ">
         <div className="card-body">
-          {/* Header */}
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-lg font-semibold text-gray-800">Periodic Summary</h2>
-            <div className="flex gap-4">
-              <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-sm">
-                  Monthly <ChevronDown className="w-4 h-4 ml-1" />
-                </label>
-              </div>
-              <div className="dropdown dropdown-end">
-                <label tabIndex={0} className="btn btn-ghost btn-sm">
-                  Or Select Date <ChevronDown className="w-4 h-4 ml-1" />
-                </label>
-              </div>
-            </div>
-          </div>
+   
 
           {/* Summary Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
-            {/* Total Appointment */}
-            <div className="text-center">
-              <p className="text-sm text-gray-600 mb-2">Total Appointment</p>
-              <p className="text-3xl font-bold text-gray-900">84573</p>
-              <p className="text-sm text-gray-500">Total</p>
-            </div>
-
-            {/* Client Happiness Score */}
-            <div className="text-center">
-              <p className="text-sm text-gray-600 mb-2">Client Happiness Score</p>
-              <div className="flex items-center justify-center gap-2">
-                <p className="text-3xl font-bold text-gray-900">4.9</p>
-                <span className="text-2xl">😊</span>
-              </div>
-              <p className="text-sm text-gray-500">/5</p>
-            </div>
-
-            {/* Appointment Type */}
-            <div className="text-center">
-              <p className="text-sm text-gray-600 mb-4">Appointment Type</p>
-              <div className="flex justify-center items-end gap-2 h-16">
-                {appointmentTypes.map((type, index) => (
-                  <div key={index} className="flex flex-col items-center">
-                    <div 
-                      className={`w-6 ${type.color} rounded-sm`}
-                      style={{ height: type.height }}
-                    ></div>
-                    <p className="text-xs text-gray-600 mt-1">{type.count}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Average Daily Hours */}
-            <div className="text-center">
-              <p className="text-sm text-gray-600 mb-2">Average Daily Hours</p>
-              <div className="relative w-16 h-16 mx-auto mb-2">
-                <div className="radial-progress border-4 border-blue-100" style={{ "--value": 75 } }>
-                  <span className="text-lg font-bold">15</span>
-                </div>
-              </div>
-              <p className="text-sm text-gray-500">hrs</p>
-            </div>
-          </div>
+          <DashboardSummaryStats/>
+      
 
           {/* Bottom Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8">
             {/* Top Practitioner */}
             <div>
               <div className="flex justify-between items-center mb-4">

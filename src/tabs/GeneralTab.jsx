@@ -22,8 +22,6 @@ const GeneralTab = () => {
 
       {/* Bottom Row - Booking Table */}
       <TodaysBooking />
-
-
     </div>
   );
 }
