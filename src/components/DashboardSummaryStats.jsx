@@ -112,7 +112,7 @@ const DashboardSummaryStats = () => {
                             dataKey="value"
                             fill={item.color}
                             radius={[4, 4, 0, 0]}
-                            barSize={16}
+                            barSize={30}
                           />
                         </BarChart>
                       </ResponsiveContainer>
