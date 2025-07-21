@@ -62,7 +62,7 @@ const RevenueOverview = () => {
 
   return (
     <div
-      className="relative bg-[#d8d8d8] rounded-3xl p-3 bg-no-repeat bg-bottom-right overflow-hidden"
+      className="relative bg-[#d8d8d8] rounded-t-3xl p-3 bg-no-repeat bg-bottom-right overflow-hidden"
       style={{
         backgroundImage: `url(${bgImg})`,
         backgroundSize: "75% 60%",
