@@ -24,64 +24,6 @@ const SummaryPanel = () => {
     { month: "Dec", totalRevenue: 80, newPatients: 70, oldPatients: 60 },
   ];
 
-  const summaryCards = [
-    {
-      title: "Total Revenue",
-      value: "14573",
-      growth: "15%",
-      color: "bg-purple-100",
-      trend: "up",
-    },
-    {
-      title: "Total Inventory",
-      value: "44573",
-      growth: "15%",
-      color: "bg-purple-100",
-      trend: "up",
-    },
-    {
-      title: "Average Consultation Time",
-      value: "74573",
-      growth: "15%",
-      color: "bg-gray-100",
-      trend: "up",
-    },
-    {
-      title: "Avg Age Group",
-      value: "64573",
-      growth: "15%",
-      color: "bg-purple-100",
-      trend: "up",
-    },
-    {
-      title: "Total Appointments",
-      value: "84573",
-      growth: "14%",
-      color: "bg-blue-100",
-      trend: "up",
-    },
-    {
-      title: "New Patients",
-      value: "54573",
-      growth: "15%",
-      color: "bg-green-100",
-      trend: "up",
-    },
-    {
-      title: "Average Patient Wait Time",
-      value: "24573",
-      growth: "10%",
-      color: "bg-teal-100",
-      trend: "up",
-    },
-    {
-      title: "Cancellation Rate",
-      value: "34573",
-      growth: "20%",
-      color: "bg-orange-100",
-      trend: "up",
-    },
-  ];
 
   const mostRevenueData = [
     { source: "From Appointment", amount: 841, color: "bg-teal-500" },
@@ -92,67 +34,8 @@ const SummaryPanel = () => {
   return (
     <div className=" bg-gray-50  p-6">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h1 className="text-2xl font-bold text-gray-900">Summary</h1>
-          <div className="flex items-center gap-4">
-            <div className="dropdown dropdown-end">
-              <label
-                tabIndex={0}
-                className="btn btn-ghost btn-sm border border-gray-300"
-              >
-                2025 <ChevronDown className="w-4 h-4 ml-1" />
-              </label>
-            </div>
-            <div className="dropdown dropdown-end">
-              <label
-                tabIndex={0}
-                className="btn btn-ghost btn-sm border border-gray-300"
-              >
-                Or Select Date <ChevronDown className="w-4 h-4 ml-1" />
-              </label>
-            </div>
-          </div>
-        </div>
+    
 
-        {/* Summary Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-          {summaryCards.map((card, index) => (
-            <div key={index} className={`card ${card.color} shadow-sm`}>
-              <div className="card-body p-4">
-                <h3 className="text-sm font-medium text-gray-600 mb-2">
-                  {card.title}
-                </h3>
-                <div className="flex items-end justify-between">
-                  <div>
-                    <p className="text-2xl font-bold text-gray-900">
-                      {card.value}
-                    </p>
-                    <div className="flex items-center mt-1">
-                      <span className="text-sm text-green-600 font-medium">
-                        {card.growth}
-                      </span>
-                      <svg
-                        className="w-4 h-4 ml-1 text-green-600"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M5.293 7.707a1 1 0 010-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L6.707 7.707a1 1 0 01-1.414 0z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                  <div className="w-16 h-12 bg-white bg-opacity-50 rounded-lg flex items-center justify-center">
-                    <div className="w-8 h-8 bg-gradient-to-br from-purple-400 to-blue-500 rounded-full opacity-60"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
         {/* Bottom Section */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
