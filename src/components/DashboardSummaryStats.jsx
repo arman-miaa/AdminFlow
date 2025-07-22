@@ -2,11 +2,9 @@ import {
   BarChart,
   Bar,
   ResponsiveContainer,
-  PieChart,
-  Pie,
-  Cell,
+
 } from "recharts";
-import { Calendar, Smile, Clock, TrendingUp, ChevronDown } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { MdDateRange } from "react-icons/md";
 
 
@@ -42,57 +40,48 @@ const DashboardSummaryStats = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
-          {/* Total Appointment Card */}
-          <div className="bg-gradient-to-br from-blue-100 to-purple-100 rounded-2xl p-6 relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-white/50 rounded-lg">
-                <Calendar className="w-5 h-5 text-blue-600" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+          <div className="card relative bg-white/70 border-white/70 rounded-4xl shadow-sm overflow-hidden">
+            {/* Top Right Blur Circle */}
+            <div className="absolute top-1 right-1 w-20 h-20 bg-purple-400 opacity-20 rounded-full blur-lg z-0" />
+
+            {/* Main Content */}
+            <div className="p-6 flex flex-col justify-between h-full relative z-10">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
+                Total Appointment
+              </h3>
+              <div className="flex items-center justify-between">
+                <div className="text-3xl font-bold text-gray-900">
+                  84294
+                  <span className="text-lg text-gray-500 ml-1">total</span>
+                </div>
               </div>
             </div>
-            <div className="space-y-2">
-              <h4 className="text-sm text-gray-600 font-medium">
-                Total Appointment
-              </h4>
-              <p className="text-3xl font-bold text-gray-900">
-                84294
-                <span className="text-xs text-gray-500 ml-1">Total</span>
-              </p>
-            </div>
-            <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-white/20 rounded-full"></div>
-            <div className="absolute -top-4 -left-4 w-16 h-16 bg-white/20 rounded-full"></div>
           </div>
 
           {/* Client Happiness Score Card */}
-          <div className="bg-gradient-to-br from-yellow-100 to-orange-100 rounded-2xl p-6 relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-white/50 rounded-lg">
-                <Smile className="w-5 h-5 text-yellow-600" />
-              </div>
-            </div>
-            <div className="space-y-2">
-              <h4 className="text-sm text-gray-600 font-medium">
+          <div className="card bg-white/70 border-white/70 rounded-4xl shadow-sm">
+            <div className=" p-6 flex justify-between flex-col h-full">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Client Happiness Score
-              </h4>
-              <div className="flex items-center gap-2">
-                <p className="text-3xl font-bold text-gray-900">
+              </h3>
+              <div className="flex items-center justify-between ">
+                <div className="text-3xl font-bold text-gray-900 mb-2">
                   4.9
-                  <span className="text-xs text-gray-500 ml-1">/5</span>
-                </p>
-                <span className="text-2xl">😊</span>
+                  <span className="text-lg text-gray-500">/5</span>
+                </div>
+
+                <div className="relative">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center bg-yellow-200 shadow-[0_4px_12px_rgba(255,215,100,0.6)]">
+                    <span className="text-3xl">☺️</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-white/20 rounded-full"></div>
           </div>
 
           {/* Appointment Type Card */}
-          <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-blue-50 rounded-lg">
-                <TrendingUp className="w-5 h-5 text-blue-600" />
-              </div>
-            </div>
-
+          <div className="bg-white/70 border-white/70 rounded-4xl p-6 shadow-sm border ">
             <div className="space-y-4">
               <h4 className="text-sm text-gray-600 font-medium">
                 Appointment Type
@@ -118,7 +107,7 @@ const DashboardSummaryStats = () => {
                       </ResponsiveContainer>
                     </div>
                     {/* 🔼 Text Label */}
-                    <span className="text-xs font-medium text-gray-500 mb-1">
+                    <span className="text-xs font-medium text-gray-500 ">
                       {item.text}
                     </span>
 
@@ -133,21 +122,17 @@ const DashboardSummaryStats = () => {
           </div>
 
           {/* Average Daily Hours Card */}
-          <div className="bg-gradient-to-br from-cyan-100 to-blue-100 rounded-2xl p-6 relative overflow-hidden">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-white/50 rounded-lg">
-                <Clock className="w-5 h-5 text-cyan-600" />
-              </div>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-sm text-gray-600 font-medium">
+          <div className="card  bg-white/70 border-white/70 rounded-4xl shadow-sm">
+            <div className=" p-6 flex justify-between flex-col h-full">
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Average Daily Hours
-              </h4>
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-1">
-                  <p className="text-3xl font-bold text-gray-900">15</p>
-                  <span className="text-xs text-gray-500 mt-2">hrs</span>
+              </h3>
+              <div className="flex items-center justify-between ">
+                <div className="text-3xl font-bold text-gray-900 mb-2">
+                  4.9
+                  <span className="text-lg text-gray-500">/5</span>
                 </div>
+
                 <div className="relative w-16 h-16">
                   <svg
                     className="w-16 h-16 transform -rotate-90"
@@ -178,7 +163,6 @@ const DashboardSummaryStats = () => {
                 </div>
               </div>
             </div>
-            <div className="absolute -bottom-4 -right-4 w-20 h-20 bg-white/20 rounded-full"></div>
           </div>
         </div>
       </div>
