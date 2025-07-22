@@ -1,6 +1,6 @@
 import { MapPin,  Navigation } from "lucide-react";
 import { FaMars, FaVenus } from "react-icons/fa";
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup,ZoomControl  } from "react-leaflet";
 
 const DashboardCards = () => {
   const revenueData = [
@@ -217,7 +217,8 @@ const DashboardCards = () => {
             <div className="flex flex-wrap gap-2 mb-4">
               {locationData.map((location, index) => (
                 <div key={index} className={`badge ${location.color} gap-1`}>
-                  {location.name} {location.count}
+                  {location.name}
+                  <span>{location.count}</span>
                 </div>
               ))}
             </div>
@@ -238,13 +239,6 @@ const DashboardCards = () => {
                   <Popup>Dhaka City</Popup>
                 </Marker>
               </MapContainer>
-           
-
-         
-
-       
-
-        
             </div>
           </div>
         </div>

@@ -1,4 +1,9 @@
 import { MdMoreVert } from "react-icons/md";
+import DImg from "../assets/user.jpg";
+import DImg2 from "../assets/user2.png";
+import DImg3 from "../assets/user3.jpg";
+import DImg4 from "../assets/user4.png";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const TodaysBooking = () => {
   const bookings = [
@@ -6,7 +11,10 @@ const TodaysBooking = () => {
       patient: "Md Ahmed Ullah",
       days: "Suffering from fever for 2 days",
       doctor: "Dr. Jena Doe",
+      degree: "MBBS, SRFC",
+      image: DImg,
       time: "20 Jan 2024",
+      clock: "2:20pm",
       place: "Online",
       price: "$40.00",
       status: "Scheduled",
@@ -16,7 +24,10 @@ const TodaysBooking = () => {
       patient: "Mamun Rashid",
       days: "Suffering from Stomach Fever",
       doctor: "Dr. Jhankar Singh",
+      degree: "MBBS, SRFC",
+      image: DImg2,
       time: "20 Jan 2024",
+      clock: "2:20pm",
       place: "In Clinic",
       price: "$35.00",
       status: "Re-Scheduled",
@@ -26,7 +37,10 @@ const TodaysBooking = () => {
       patient: "Tariqul Islam",
       days: "Suffering from Headache last 5 Days",
       doctor: "Dr. Sarah Smith",
+      degree: "MBBS, SRFC",
+      image: DImg3,
       time: "20 Jan 2024",
+      clock: "2:20pm",
       place: "Online",
       price: "$15.00",
       status: "Cancelled",
@@ -36,7 +50,10 @@ const TodaysBooking = () => {
       patient: "Shahrukh Hossain",
       days: "Suffering from Fever for 2 days",
       doctor: "Dr. Oliver Smith",
+      degree: "MBBS, SRFC",
+      image: DImg4,
       time: "20 Jan 2024",
+      clock: "2:20pm",
       place: "In Clinic",
       price: "$60.00",
       status: "Checked-in",
@@ -46,7 +63,10 @@ const TodaysBooking = () => {
       patient: "Mehrab Hassan",
       days: "Suffering from Fever for 2 days",
       doctor: "Dr. Tasmin Ali",
+      degree: "MBBS, SRFC",
+      image: DImg,
       time: "20 Jan 2024",
+      clock: "2:20pm",
       place: "In Clinic",
       price: "$30.00",
       status: "In Progress",
@@ -55,69 +75,70 @@ const TodaysBooking = () => {
   ];
 
   return (
-    <div className="bg-white rounded-xl shadow-sm">
-      <div className="p-6 border-b">
-        <h3 className="text-lg font-semibold">Today's Booking</h3>
-      </div>
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead className="bg-gray-50">
+    <div className="bg-white/40 backdrop-blur-md rounded-2xl shadow-md p-6">
+      <h3 className="text-lg font-semibold text-gray-800 mb-4">
+        Today's Booking
+      </h3>
+      <div className="overflow-x-auto rounded-xl">
+        <table className="min-w-full">
+          <thead className="bg-white/30 text-gray-500 text-xs uppercase">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Patients
+              <th className="px-4 py-3">
+                <input type="checkbox" className="form-checkbox" />
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Practitioner
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Time
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Booking Place
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Price
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Status
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">
-                Action
-              </th>
+              <th className="px-4 py-3 text-left">Patients</th>
+              <th className="px-4 py-3 text-left">Practitioner</th>
+              <th className="px-4 py-3 text-left">Time</th>
+              <th className="px-4 py-3 text-left">Booking Place</th>
+              <th className="px-4 py-3 text-left">Price</th>
+              <th className="px-4 py-3 text-left">Status</th>
+              <th className="px-4 py-3 text-left">Action</th>
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
             {bookings.map((booking, index) => (
-              <tr key={index} className="hover:bg-gray-50">
-                <td className="px-6 py-4">
-                  <div>
-                    <p className="font-medium text-gray-900">
-                      {booking.patient}
-                    </p>
-                    <p className="text-sm text-gray-500">{booking.days}</p>
+              <tr key={index} className="hover:bg-gray-100/40 transition">
+                <td className="px-4 py-3">
+                  <input type="checkbox" className="form-checkbox" />
+                </td>
+                <td className="px-4 py-3">
+                  <p className="text-sm font-medium text-gray-900">
+                    {booking.patient}
+                  </p>
+                  <p className="text-xs text-gray-500">{booking.days}</p>
+                </td>
+                <td className="px-4 py-3 text-sm text-gray-900">
+                  <div className="flex items-center gap-3">
+                    <img
+                      src={booking.image}
+                      alt={booking.doctor}
+                      className="w-10 h-10 rounded-full object-cover"
+                    />
+                    <div>
+                      <p className="font-medium">{booking.doctor}</p>
+                      <p className="text-xs text-gray-500">{booking.degree}</p>
+                    </div>
                   </div>
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-900">
-                  {booking.doctor}
+                <td className="px-4 py-3 text-sm text-gray-900">
+                  <p>{booking.time}</p>
+                  <p className="text-xs text-gray-500">{booking.clock}</p>
                 </td>
-                <td className="px-6 py-4 text-sm text-gray-900">
-                  {booking.time}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-900">
+                <td className="px-4 py-3 text-sm text-gray-900">
                   {booking.place}
                 </td>
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">
+                <td className="px-4 py-3 text-sm font-medium text-gray-900">
                   {booking.price}
                 </td>
-                <td className="px-6 py-4">
+                <td className="px-4 py-3">
                   <span
-                    className={`px-2 py-1 text-xs font-medium rounded-full ${booking.statusColor}`}
+                    className={`text-xs font-semibold px-2 py-1 rounded-full ${booking.statusColor}`}
                   >
                     {booking.status}
                   </span>
                 </td>
-                <td className="px-6 py-4">
-                  <button className="text-gray-400 hover:text-gray-600">
+                <td className="px-4 py-3">
+                  <button className="text-gray-500 hover:text-gray-800">
                     <MdMoreVert className="w-5 h-5" />
                   </button>
                 </td>
@@ -126,26 +147,21 @@ const TodaysBooking = () => {
           </tbody>
         </table>
       </div>
-      <div className="px-6 py-4 border-t bg-gray-50 flex items-center justify-between">
-        <p className="text-sm text-gray-700">Showing result 01 of 25</p>
-        <div className="flex space-x-2">
-          <button className="px-3 py-1 text-sm border rounded hover:bg-gray-100">
-            ‹
+
+      <div className="flex justify-between items-center mt-4 px-1">
+        <p className="text-sm text-gray-600">Showing result 01 of 25</p>
+        <div className="flex gap-1">
+          <button className="w-8 h-8 rounded-full  bg-gray-50 flex items-center justify-center cursor-pointer">
+            <IoIosArrowBack className="text-gray-600" />
           </button>
-          <button className="px-3 py-1 text-sm bg-blue-500 text-white rounded">
+          <button className="w-8 h-8 rounded-full bg-blue-500 text-white">
             1
           </button>
-          <button className="px-3 py-1 text-sm border rounded hover:bg-gray-100">
-            2
-          </button>
-          <button className="px-3 py-1 text-sm border rounded hover:bg-gray-100">
-            3
-          </button>
-          <button className="px-3 py-1 text-sm border rounded hover:bg-gray-100">
-            4
-          </button>
-          <button className="px-3 py-1 text-sm border rounded hover:bg-gray-100">
-            ›
+          <button className="w-8 h-8 rounded-full bg-gray-50">2</button>
+          <button className="w-8 h-8 rounded-full bg-gray-50">3</button>
+          <button className="w-8 h-8 rounded-full bg-gray-50">4</button>
+          <button className="w-8 h-8 rounded-full  bg-gray-50 flex items-center justify-center cursor-pointer">
+            <IoIosArrowForward className="text-gray-600" />
           </button>
         </div>
       </div>
