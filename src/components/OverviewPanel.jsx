@@ -35,7 +35,7 @@ const topPractitioners = [
 
 
   return (
-    <div className="min-h-screen  p-6 ">
+    <div className="  px-6 ">
       {/* Periodic Summary Card */}
       <div className="card  ">
         <div className="card-body">
@@ -133,17 +133,17 @@ const topPractitioners = [
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
                     data={data}
-                    margin={{ top: 10, right: 20, left: 10, bottom: 5 }} // Left margin set to 10
+                    margin={{ top: 10, right: 20, left: 10, bottom: 5 }} 
                   >
                     <YAxis
-                      width={40} // Y-axis label গুলোর জন্য যথেষ্ট জায়গা
+                      width={40} 
                       domain={[0, 100]}
                       ticks={[0, 20, 40, 60, 80, 100]}
                       axisLine={false}
                       tickLine={false}
                       fontSize={12}
                       fill="#6B7280"
-                      tickMargin={8} // Y-axis label এবং টিকের মাঝে একটু gap
+                      tickMargin={8} 
                     />
                     <XAxis
                       dataKey="name"
@@ -151,7 +151,7 @@ const topPractitioners = [
                       tickLine={false}
                       fontSize={12}
                       fill="#6B7280"
-                      interval={0} // সব লেবেল দেখানোর জন্য
+                      interval={0} 
                     />
                     <Bar
                       dataKey="value"

@@ -24,11 +24,6 @@ const DashboardCards = () => {
     },
   ];
 
-  const locationData = [
-    { name: "Malibag", count: 15, color: "badge-primary" },
-    { name: "Dhanmondi", count: 5, color: "badge-secondary" },
-    { name: "Mohammadpur", count: 14, color: "badge-accent" },
-  ];
 
 
 
@@ -214,22 +209,36 @@ const DashboardCards = () => {
             </h2>
 
             {/* Location Badges */}
-            <div className="flex flex-wrap gap-2 mb-4">
-              {locationData.map((location, index) => (
-                <div key={index} className={`badge ${location.color} gap-1`}>
-                  {location.name}
-                  <span>{location.count}</span>
-                </div>
-              ))}
+
+            <div className="flex items-center gap-4 font-medium">
+              <div className="flex items-center gap-1 ">
+                <h3 className="text-blue-800">Malibag</h3>
+                <span className="text-blue-800 bg-blue-50 px-1 rounded-full">
+                  35
+                </span>
+              </div>
+              <div className="flex items-center gap-1 ">
+                <h3 className="text-blue-500">Dhanmondi</h3>
+                <span className="text-blue-600 bg-teal-50 px-1 rounded-full">
+                  05
+                </span>
+              </div>
+              <div className="flex items-center gap-1 ">
+                <h3 className="text-green-600">Mohammadpur</h3>
+                <span className="text-green-600 bg-green-50 px-1 rounded-full">
+                  14
+                </span>
+              </div>
             </div>
 
             {/* Map Container */}
-            <div className="relative h-48 bg-gradient-to-br from-blue-50 to-green-50 rounded-lg overflow-hidden ">
-              {/* Map Background Pattern */}
+            <div className="relative h-[200px] rounded-lg overflow-hidden">
               <MapContainer
                 center={[23.8103, 90.4125]}
                 zoom={13}
-                style={{ height: "400px", width: "100%" }}
+                zoomControl={false}
+                className="rounded-lg"
+                style={{ height: "100%", width: "100%" }}
               >
                 <TileLayer
                   attribution="&copy; OpenStreetMap contributors"
@@ -238,6 +247,9 @@ const DashboardCards = () => {
                 <Marker position={[23.8103, 90.4125]}>
                   <Popup>Dhaka City</Popup>
                 </Marker>
+
+             
+                <ZoomControl position="bottomright" />
               </MapContainer>
             </div>
           </div>
