@@ -1,10 +1,8 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
+import GenderCard from "../shared/GenderCard";
 
 const AnalyticsCards = () => {
-  const genderData = [
-    { name: "Female", value: 65, color: "#06B6D4" },
-    { name: "Male", value: 35, color: "#1E293B" },
-  ];
+
 
   const ageGroupData = [
     { name: "0-18 years", value: 15, color: "#3B82F6" },
@@ -17,54 +15,10 @@ const AnalyticsCards = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
       {/* Gender Card */}
-      <div className="card bg-white shadow-sm">
-        <div className="card-body p-6">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Gender</h3>
-          <div className="flex items-center justify-center">
-            <div className="relative w-32 h-32">
-              <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                  <Pie
-                    data={genderData}
-                    cx="50%"
-                    cy="50%"
-                    innerRadius={35}
-                    outerRadius={60}
-                    dataKey="value"
-                  >
-                    {genderData.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} />
-                    ))}
-                  </Pie>
-                </PieChart>
-              </ResponsiveContainer>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex gap-1">
-                  <div className="w-6 h-6 bg-pink-100 rounded-full flex items-center justify-center">
-                    <span className="text-xs">♀</span>
-                  </div>
-                  <div className="w-6 h-6 bg-blue-100 rounded-full flex items-center justify-center">
-                    <span className="text-xs">♂</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="flex justify-center gap-4 mt-4">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-cyan-500"></div>
-              <span className="text-sm text-gray-600">Female</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 rounded-full bg-slate-800"></div>
-              <span className="text-sm text-gray-600">Male</span>
-            </div>
-          </div>
-        </div>
-      </div>
+      <GenderCard />
 
       {/* Age Group Card */}
-      <div className="card bg-white shadow-sm">
+      <div className="card bg-white/70 border-white/70 rounded-4xl shadow-sm">
         <div className="card-body p-6">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Age Group
@@ -111,15 +65,22 @@ const AnalyticsCards = () => {
       </div>
 
       {/* Client Happiness Score Card */}
-      <div className="card bg-white shadow-sm">
-        <div className="card-body p-6">
+      <div className="card bg-white/70 border-white/70 rounded-4xl shadow-sm">
+        <div className=" p-6 flex justify-between flex-col h-full">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Client Happiness Score
           </h3>
-          <div className="flex flex-col items-center justify-center h-32">
-            <div className="text-6xl font-bold text-gray-900 mb-2">4.9</div>
-            <div className="text-lg text-gray-600 mb-3">/5</div>
-            <div className="text-3xl">😊</div>
+          <div className="flex items-center justify-between ">
+            <div className="text-6xl font-bold text-gray-900 mb-2">
+              4.9
+              <span className="text-lg text-gray-500">/5</span>
+            </div>
+
+            <div className="relative">
+              <div className="w-10 h-10 rounded-full flex items-center justify-center bg-yellow-200 shadow-[0_4px_12px_rgba(255,215,100,0.6)]">
+                <span className="text-3xl">☺️</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
