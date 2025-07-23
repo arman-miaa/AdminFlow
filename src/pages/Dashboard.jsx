@@ -38,7 +38,7 @@ const renderTabContent = () => {
 
 
   return (
-    <div className="p-6   ">
+    <div className="p-6 mt-12 md:mt-0  ">
       <RevenueOverview />
 
       <div className=" ">
