@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <header className=" px-6 py-4 ">
       <div className="md:flex items-center justify-between hidden ">
-        <div className="items-center   gap-2">
+        <div className="items-center flex  gap-2">
           <img
             src={user}
             alt="userImg"
