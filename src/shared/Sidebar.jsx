@@ -29,7 +29,7 @@ const menuItems = [
 ];
 
   return (
-    <div className="w-64 h-screen flex flex-col">
+    <div className="w-64 h-screen md:flex flex-col hidden  ">
       {/* Logo/Brand */}
       <div className="p-6 flex items-center space-x-0">
         <img src={logo} alt="" className="w-7 h-8" />

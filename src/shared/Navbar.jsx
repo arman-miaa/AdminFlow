@@ -11,7 +11,7 @@ import { HiMiniCalendarDateRange } from "react-icons/hi2";
 
 const Navbar = () => {
   return (
-    <header className=" px-6 py-4">
+    <header className=" px-6 py-4 hidden md:flex">
       <div className="flex items-center justify-between">
         <div className="flex items-center  gap-2">
           <img

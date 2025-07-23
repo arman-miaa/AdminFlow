@@ -1,6 +1,17 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+.glass-card {
+  background: rgba(255, 255, 255, 0.7); /* bg-white/70 */
+  backdrop-filter: blur(16px);          /* backdrop-blur-lg */
+  -webkit-backdrop-filter: blur(16px);  /* for Safari support */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* border-white/30 */
+  border-radius: 2rem;                  /* rounded-4xl (32px) */
+  padding: 1.5rem;                      /* p-6 */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* shadow-lg */
+}
+
+
 .leaflet-control-zoom {
   display: flex;
   flex-direction: column;

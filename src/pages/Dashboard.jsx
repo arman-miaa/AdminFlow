@@ -41,7 +41,7 @@ const renderTabContent = () => {
     <div className="p-6   ">
       <RevenueOverview />
 
-      <div className="bg-[#d8d8d8]  ">
+      <div className=" ">
         <TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
         {renderTabContent()}
       </div>

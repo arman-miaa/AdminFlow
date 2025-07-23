@@ -46,7 +46,7 @@ const AnalyticsCards = () => {
       <GenderCard />
 
       {/* Age Group Card */}
-      <div className="bg-white/60 backdrop-blur-md border border-white/40 rounded-3xl p-6 shadow-lg w-full max-w-sm">
+      <div className="bg-white/60 backdrop-blur-md border border-white/40 rounded-3xl p-6 shadow-lg w-full ">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold text-gray-800">Age Group</h3>
           <div className="w-3 h-3 bg-gray-400 rounded-full" />

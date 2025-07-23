@@ -1,4 +1,4 @@
-import { ChevronDown } from "lucide-react";
+
 import {
   LineChart,
   Line,
@@ -6,7 +6,7 @@ import {
   YAxis,
   ResponsiveContainer,
   Tooltip,
-  Legend,
+  
 } from "recharts";
 import RevenueForm from "../shared/RevenueForm";
 
@@ -48,12 +48,12 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const SummaryPanel = () => {
   return (
-    <div className="bg-gradient-to-br from-[#D0E0FF] via-white to-[#E4D8F5] p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className=" p-6">
+      <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Revenue Summary Chart */}
           <div className="lg:col-span-2">
-            <div className="card backdrop-blur-md bg-white/40 border border-white/20 shadow-md rounded-2xl">
+            <div className="card  bg-white/70 border border-white/30 backdrop-blur-lg shadow-md rounded-2xl">
               <div className="card-body p-6">
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-lg font-semibold text-gray-900">

@@ -9,6 +9,7 @@ import { MdDateRange } from "react-icons/md";
 
 
 
+
 const appointmentTypeData = [
   { name: "Type A", value: 4272, text: "Ofline", color: "#3B82F6" },
   { name: "Type B", value: 3412, text: "Online", color: "#06B6D4" },
@@ -41,7 +42,7 @@ const DashboardSummaryStats = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
-          <div className="card relative bg-white/70 border-white/70 rounded-4xl shadow-sm overflow-hidden">
+          <div className="card relative bg-white/70 border-white/30 rounded-4xl backdrop-blur-lg shadow-sm overflow-hidden">
             {/* Top Right Blur Circle */}
             <div className="absolute top-1 right-1 w-20 h-20 bg-purple-400 opacity-20 rounded-full blur-lg z-0" />
 
@@ -60,7 +61,7 @@ const DashboardSummaryStats = () => {
           </div>
 
           {/* Client Happiness Score Card */}
-          <div className="card bg-white/70 border-white/70 rounded-4xl shadow-sm">
+          <div className="card bg-white/70 border-white/30 backdrop-blur-lg rounded-4xl shadow-sm">
             <div className=" p-6 flex justify-between flex-col h-full">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Client Happiness Score
@@ -81,9 +82,11 @@ const DashboardSummaryStats = () => {
           </div>
 
           {/* Appointment Type Card */}
-          <div className="bg-white/70 border-white/70 rounded-4xl p-6 shadow-sm border ">
+          <div className="bg-white/70 border-white/30 backdrop-blur-lg rounded-4xl p-6 shadow-sm border "
+         
+          >
             <div className="space-y-4">
-              <h4 className="text-sm text-gray-600 font-medium">
+              <h4 className="text-lg text-gray-800 font-medium">
                 Appointment Type
               </h4>
 
@@ -122,7 +125,7 @@ const DashboardSummaryStats = () => {
           </div>
 
           {/* Average Daily Hours Card */}
-          <div className="card  bg-white/70 border-white/70 rounded-4xl shadow-sm">
+          <div className="card  bg-white/70 border-white/30 backdrop-blur-lg rounded-4xl shadow-sm">
             <div className=" p-6 flex justify-between flex-col h-full">
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
                 Average Daily Hours
@@ -133,9 +136,9 @@ const DashboardSummaryStats = () => {
                   <span className="text-lg text-gray-500">/5</span>
                 </div>
 
-                <div className="relative w-16 h-16">
+                <div className="relative bottom-8  w-16 h-16">
                   <svg
-                    className="w-16 h-16 transform -rotate-90"
+                    className="w-16 h-16 transform rotate-10"
                     viewBox="0 0 100 100"
                   >
                     <circle
@@ -150,7 +153,7 @@ const DashboardSummaryStats = () => {
                       cx="50"
                       cy="50"
                       r="40"
-                      stroke="#06B6D4"
+                      stroke="blue"
                       strokeWidth="8"
                       fill="none"
                       strokeDasharray={`${2 * Math.PI * 40}`}

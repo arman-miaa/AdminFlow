@@ -20,7 +20,7 @@ const DashboardCards = () => {
     <GenderCard/>
 
         {/* Patient Location Trend Card */}
-        <div className="card bg-white/30 border-white/30 shadow-lg lg:col-span-2 rounded-4xl">
+        <div className="card bg-white/70 border-white/30 shadow-lg backdrop-blur-lg lg:col-span-2 rounded-4xl">
           <div className="card-body">
             <h2 className="card-title text-base-content/70 text-sm font-medium mb-4">
               Patient Location Trend

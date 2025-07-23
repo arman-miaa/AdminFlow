@@ -75,7 +75,7 @@ const TodaysBooking = () => {
   ];
 
   return (
-    <div className="bg-white/40 backdrop-blur-md rounded-2xl shadow-md p-6">
+    <div className="bg-white/70 border-white/30 backdrop-blur-lg rounded-4xl shadow-md p-6 mx-6 ">
       <h3 className="text-lg font-semibold text-gray-800 mb-4">
         Today's Booking
       </h3>

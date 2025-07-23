@@ -4,7 +4,7 @@ import { FaMars, FaVenus } from "react-icons/fa"
 const GenderCard = () => {
   return (
       <div>
-                 <div className="card bg-white/30 border-white/30 h-full shadow-lg p-6 rounded-4xl">
+                 <div className="card bg-white/70 border-white/30 backdrop-blur-lg h-full  shadow-lg p-6 rounded-4xl">
                     <h2 className="text-sm font-medium text-gray-800 mb-6">Gender</h2>
                     <div className="flex justify-center items-end gap-10">
                       {/* Female Column */}

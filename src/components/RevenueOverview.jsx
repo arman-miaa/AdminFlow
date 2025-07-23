@@ -62,7 +62,7 @@ const RevenueOverview = () => {
 
   return (
     <div
-      className="relative bg-[#d8d8d8] rounded-t-3xl p-3 bg-no-repeat bg-bottom-right overflow-hidden"
+      className="relative bg-[#d8d8d850] rounded-t-4xl rounded-br-4xl p-3 bg-no-repeat bg-bottom-right overflow-hidden"
       style={{
         backgroundImage: `url(${bgImg})`,
         backgroundSize: "75% 60%",
@@ -84,11 +84,11 @@ const RevenueOverview = () => {
         </div>
 
         {/* Revenue Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2 w-full">
           {cards.map((item, index) => (
             <div
               key={index}
-              className="relative bg-white/70  backdrop-blur-lg border border-white/30 rounded-2xl p-6 shadow-lg"
+              className="relative bg-white/70  backdrop-blur-lg border border-white/30 rounded-4xl p-6 shadow-lg"
             >
               <p className="text-sm mb-1">{item.title}</p>
 

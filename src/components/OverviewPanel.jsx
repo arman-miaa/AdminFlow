@@ -45,7 +45,7 @@ const topPractitioners = [
           {/* Bottom Section */}
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-2 mt-8">
             {/* Top Practitioner */}
-            <div className="bg-white/70 backdrop-blur-md border border-white/20 rounded-4xl p-4 shadow-md">
+            <div className="glass-card">
               <div className="flex justify-between items-center mb-4">
                 <div className="flex items-center gap-2">
                   <span className="bg-blue-600 p-1 rounded-full">
