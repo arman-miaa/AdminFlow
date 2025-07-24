@@ -4,16 +4,16 @@ import {
   MdMessage,
   MdSettings,
 } from "react-icons/md";
-import user from "../assets/user.jpg"
+import user from "../assets/user.jpg";
 import { TbWorld } from "react-icons/tb";
 import { BiBorderAll } from "react-icons/bi";
 import { HiMiniCalendarDateRange } from "react-icons/hi2";
 import { useState } from "react";
 import { slideFromTop } from "../animations/slide";
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 const Navbar = () => {
-    const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false);
   return (
     <motion.header
       variants={slideFromTop}
