@@ -37,7 +37,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Hamburger Icon for small screens */}
-      <div className="md:hidden fixed top-4 left-4 z-50">
+      <div className="md:hidden fixed top-5 left-4 z-50">
         <button onClick={() => setIsOpen(true)}>
           {!isOpen && <Menu className="w-7 h-7 text-gray-800" />}
         </button>

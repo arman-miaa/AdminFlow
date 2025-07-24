@@ -1,14 +1,6 @@
-import {
-  BarChart,
-  Bar,
-  ResponsiveContainer,
-
-} from "recharts";
+import {  BarChart,  Bar,  ResponsiveContainer} from "recharts";
 import { ChevronDown } from "lucide-react";
 import { MdDateRange } from "react-icons/md";
-
-
-
 
 const appointmentTypeData = [
   { name: "Type A", value: 4272, text: "Ofline", color: "#3B82F6" },
@@ -21,27 +13,29 @@ const DashboardSummaryStats = () => {
   const progressPercentage = 62; 
 
     return (
-      <div>
+      <div className="">
         {/* Header */}
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-lg font-semibold text-gray-800">
+        <div className="flex justify-between items-center mb-6 ">
+          <h2 className="text-[13px] md:text-lg font-medium md:font-semibold text-gray-800">
             Periodic Summary
           </h2>
-          <div className="flex gap-4">
+          <div className="flex md:gap-4">
             <div className="dropdown dropdown-end bg-blue-50 rounded-full">
-              <label tabIndex={0} className="btn btn-ghost btn-sm">
-                Monthly <ChevronDown className="w-4 h-4 " />
+              <label tabIndex={0} className="flex items-center px-2 mt-1 text-[12px] md:text-[15px]">
+                Monthly <ChevronDown className="w-3 md:w-4 h-4 " />
               </label>
             </div>
             <div className="dropdown dropdown-end">
               <label tabIndex={0} className="btn btn-ghost btn-sm">
                 Or Select Date{" "}
-                <MdDateRange className="w-6 h-6 ml-1 bg-blue-50 rounded-full p-1" />
+                <MdDateRange className="w-6 h-6 md:ml-1 bg-blue-50 rounded-full p-1" />
               </label>
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 w-full">
+
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
           <div className="card relative bg-white/70 border-white/30 rounded-4xl backdrop-blur-lg shadow-sm overflow-hidden">
             {/* Top Right Blur Circle */}
             <div className="absolute top-1 right-1 w-20 h-20 bg-purple-400 opacity-20 rounded-full blur-lg z-0" />
@@ -82,10 +76,10 @@ const DashboardSummaryStats = () => {
           </div>
 
           {/* Appointment Type Card */}
-          <div className="bg-white/70 border-white/30 backdrop-blur-lg rounded-4xl p-6 shadow-sm border "
+          <div className="bg-white/70 border-white/30 backdrop-blur-lg rounded-4xl p-4 py-2 shadow-sm border "
          
           >
-            <div className="space-y-4">
+            <div className="">
               <h4 className="text-lg text-gray-800 font-medium">
                 Appointment Type
               </h4>
@@ -136,7 +130,7 @@ const DashboardSummaryStats = () => {
                   <span className="text-lg text-gray-500">/5</span>
                 </div>
 
-                <div className="relative bottom-8  w-16 h-16">
+                <div className="relative bottom-2  w-16 h-16">
                   <svg
                     className="w-16 h-16 transform rotate-10"
                     viewBox="0 0 100 100"

@@ -75,21 +75,23 @@ const TodaysBooking = () => {
   ];
 
   return (
-    <div className="bg-white/70 border-white/30 backdrop-blur-lg rounded-4xl shadow-md p-6 mx-6 ">
+    <div className="bg-white/70 border-white/30 backdrop-blur-lg rounded-2xl md:rounded-4xl shadow-md p-2 md:p-4   mt-8">
       <h3 className="text-lg font-semibold text-gray-800 mb-4">
         Today's Booking
       </h3>
-      <div className="overflow-x-auto rounded-xl">
-        <table className="min-w-full">
+
+      {/* Responsive table container */}
+      <div className="overflow-x-auto rounded-xl ">
+        <table className="min-w-[600px] w-full text-sm">
           <thead className="bg-white/30 text-gray-500 text-xs uppercase">
             <tr>
-              <th className="px-4 py-3">
+              <th className=" px-1 md:px-4 py-3">
                 <input type="checkbox" className="form-checkbox" />
               </th>
               <th className="px-4 py-3 text-left">Patients</th>
               <th className="px-4 py-3 text-left">Practitioner</th>
               <th className="px-4 py-3 text-left">Time</th>
-              <th className="px-4 py-3 text-left">Booking Place</th>
+              <th className="px-4 py-3 text-left">Place</th>
               <th className="px-4 py-3 text-left">Price</th>
               <th className="px-4 py-3 text-left">Status</th>
               <th className="px-4 py-3 text-left">Action</th>
@@ -98,41 +100,45 @@ const TodaysBooking = () => {
           <tbody className="divide-y divide-gray-200">
             {bookings.map((booking, index) => (
               <tr key={index} className="hover:bg-gray-100/40 transition">
-                <td className="px-4 py-3">
+                <td className="md:px-4 md:py-3">
                   <input type="checkbox" className="form-checkbox" />
                 </td>
-                <td className="px-4 py-3">
-                  <p className="text-sm font-medium text-gray-900">
+                <td className="md:px-4 py-1 md:py-3">
+                  <p className="text-[10px] md:text-sm font-medium text-gray-900">
                     {booking.patient}
                   </p>
-                  <p className="text-xs text-gray-500">{booking.days}</p>
+                  <p className=" text-[10px] not-last:md:text-xs text-gray-500">{booking.days}</p>
                 </td>
-                <td className="px-4 py-3 text-sm text-gray-900">
-                  <div className="flex items-center gap-3">
+                <td className="md:px-4 md:py-3 text-sm text-gray-900">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <img
                       src={booking.image}
                       alt={booking.doctor}
-                      className="w-10 h-10 rounded-full object-cover"
+                      className="w-6 h-6 md:w-8 md:h-8 sm:w-10 sm:h-10 rounded-full object-cover"
                     />
                     <div>
-                      <p className="font-medium">{booking.doctor}</p>
-                      <p className="text-xs text-gray-500">{booking.degree}</p>
+                      <p className=" text-[11px] md:text-[12px] font-medium">
+                        {booking.doctor}
+                      </p>
+                      <p className="text-[10px] md:text-xs text-gray-500">
+                        {booking.degree}
+                      </p>
                     </div>
                   </div>
                 </td>
-                <td className="px-4 py-3 text-sm text-gray-900">
+                <td className="px-1 md:px-4 md:py-3 text-[11px] md:text-[12px] text-gray-900">
                   <p>{booking.time}</p>
                   <p className="text-xs text-gray-500">{booking.clock}</p>
                 </td>
-                <td className="px-4 py-3 text-sm text-gray-900">
+                <td className="md:px-4 md:py-3 text-[12px] md:text-[12px] text-gray-900">
                   {booking.place}
                 </td>
-                <td className="px-4 py-3 text-sm font-medium text-gray-900">
+                <td className="text-[11px] md:text-[16px] md:px-4 md:py-3 text-sm font-medium text-gray-900">
                   {booking.price}
                 </td>
                 <td className="px-4 py-3">
                   <span
-                    className={`text-xs font-semibold px-2 py-1 rounded-full ${booking.statusColor}`}
+                    className={`text-[11px] md:text-[12px] md:font-semibold px-2 py-1 rounded-full ${booking.statusColor}`}
                   >
                     {booking.status}
                   </span>
@@ -148,19 +154,20 @@ const TodaysBooking = () => {
         </table>
       </div>
 
-      <div className="flex justify-between items-center mt-4 px-1">
-        <p className="text-sm text-gray-600">Showing result 01 of 25</p>
+      {/* Pagination */}
+      <div className="flex flex-wrap justify-between items-center mt-4 px-1 gap-2 text-sm">
+        <p className="text-gray-600">Showing result 01 of 25</p>
         <div className="flex gap-1">
-          <button className="w-8 h-8 rounded-full  bg-gray-50 flex items-center justify-center cursor-pointer">
+          <button className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
             <IoIosArrowBack className="text-gray-600" />
           </button>
           <button className="w-8 h-8 rounded-full bg-blue-500 text-white">
             1
           </button>
-          <button className="w-8 h-8 rounded-full bg-gray-50">2</button>
-          <button className="w-8 h-8 rounded-full bg-gray-50">3</button>
-          <button className="w-8 h-8 rounded-full bg-gray-50">4</button>
-          <button className="w-8 h-8 rounded-full  bg-gray-50 flex items-center justify-center cursor-pointer">
+          <button className="w-8 h-8 rounded-full bg-gray-100">2</button>
+          <button className="w-8 h-8 rounded-full bg-gray-100">3</button>
+          <button className="w-8 h-8 rounded-full bg-gray-100">4</button>
+          <button className="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center">
             <IoIosArrowForward className="text-gray-600" />
           </button>
         </div>

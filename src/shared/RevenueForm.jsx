@@ -24,7 +24,7 @@ const RevenueForm = () => {
   return (
     <div>
       {/* Most Revenue From Card */}
-      <div className="card bg-white/70 border-white/30 backdrop-blur-lg h-full shadow-lg rounded-4xl">
+      <div className="card bg-white/70 border-white/30  backdrop-blur-lg h-full shadow-lg rounded-2xl md:rounded-4xl">
         <div className="card-body">
           <h2 className="card-title 0 text-sm font-medium mb-4">
             Most revenue From

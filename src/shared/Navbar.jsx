@@ -59,7 +59,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Right: User Image + Dropdown (only for mobile) */}
-      {/* Mobile Layout */}
+   
       <div className="flex items-center justify-between md:hidden mb-4">
         {/* Search bar in center */}
         <div className="flex-1">
