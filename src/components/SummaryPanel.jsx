@@ -10,6 +10,9 @@ import {
 } from "recharts";
 import RevenueForm from "../shared/RevenueForm";
 import { useEffect, useState } from "react";
+import {motion} from "framer-motion"
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { slideFromBottom } from "../animations/slide";
 
 
 const revenueData = [
@@ -53,7 +56,8 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 const SummaryPanel = () => {
-    const [isSmall, setIsSmall] = useState(false);
+  const [isSmall, setIsSmall] = useState(false);
+   const { ref, inView } = useScrollAnimation();
 
     useEffect(() => {
       const handleResize = () => {
@@ -65,7 +69,13 @@ const SummaryPanel = () => {
     }, []);
 
   return (
-    <div className=" md:p-6  mt-12 md:mt-4">
+    <motion.div
+      ref={ref}
+      variants={slideFromBottom}
+      initial="hidden"
+      animate={inView ? "show" : "hidden"}
+      className=" md:p-6  mt-12 md:mt-4"
+    >
       <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Revenue Summary Chart */}
@@ -162,7 +172,7 @@ const SummaryPanel = () => {
           <RevenueForm />
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

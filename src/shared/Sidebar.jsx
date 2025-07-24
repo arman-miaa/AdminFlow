@@ -12,6 +12,8 @@ import { useState } from "react";
 import { NavLink } from "react-router";
 import logo from "../assets/logo.png";
 import { X, Menu } from "lucide-react";
+import { motion } from "framer-motion"; 
+import { slideFromLeft } from "../animations/slide";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -43,11 +45,12 @@ const Sidebar = () => {
         </button>
       </div>
 
-      {/* Sidebar */}
-      <aside
-        className={`fixed top-0 left-0 h-full w-64 bg-[#ebedef] shadow-lg z-40 transform transition-transform duration-300 ease-in-out
-          ${isOpen ? "translate-x-0" : "-translate-x-full"}
-          md:translate-x-0 md:static  md:flex md:flex-col `}
+      {/* Sidebar with animation */}
+      <motion.aside
+        variants={slideFromLeft}
+        initial="hidden"
+        animate="show"
+        className="fixed top-0 left-0 h-full w-64 bg-[#ebedef] shadow-lg z-40 md:static md:translate-x-0 flex flex-col"
       >
         {/* Close Button for mobile */}
         <div className="md:hidden flex justify-end p-4">
@@ -57,13 +60,13 @@ const Sidebar = () => {
         </div>
 
         {/* Logo */}
-        <div className="p-6 flex items-center space-x-3  border-gray-200">
+        <div className="p-6 flex items-center space-x-3">
           <img src={logo} alt="Logo" className="w-7 h-8" />
           <h1 className="text-xl font-semibold text-gray-800">curely</h1>
         </div>
 
         {/* Navigation */}
-        <nav className="flex-1 flex flex-col  h-full -mt-16 md:-mt-0 justify-center px-4 py-6 overflow-auto">
+        <nav className="flex-1 flex flex-col justify-center px-4 py-6 overflow-auto">
           <ul className="space-y-2">
             {menuItems.map((item, index) => (
               <li key={index}>
@@ -90,7 +93,7 @@ const Sidebar = () => {
             ))}
           </ul>
         </nav>
-      </aside>
+      </motion.aside>
     </>
   );
 };

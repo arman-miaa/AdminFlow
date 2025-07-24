@@ -2,14 +2,24 @@
 import { MapContainer, TileLayer, Marker, Popup,ZoomControl  } from "react-leaflet";
 import RevenueForm from "../shared/RevenueForm";
 import GenderCard from "../shared/GenderCard";
+import {motion} from "framer-motion"
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { scaleUp } from "../animations/slide";
 
 const DashboardCards = () => {
+    const { ref, inView } = useScrollAnimation();
 
 
 
 
   return (
-    <div className="md:p-6  ">
+    <motion.div
+      ref={ref}
+      variants={scaleUp}
+      initial="hidden"
+      animate={inView ? "show" : "hidden"}
+      className="md:p-6  "
+    >
       <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 md:gap-2">
         {/* Most Revenue From Card */}
 
@@ -71,7 +81,7 @@ const DashboardCards = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

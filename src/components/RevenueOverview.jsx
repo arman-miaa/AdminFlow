@@ -1,7 +1,8 @@
 import { LineChart, Line, ResponsiveContainer } from "recharts";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
 import bgImg from "../assets/bg.avif";
-
+import { slideFromBottom } from "../animations/slide";
+import { motion } from "framer-motion"; 
 const RevenueOverview = () => {
   const cards = [
     {
@@ -61,7 +62,10 @@ const RevenueOverview = () => {
   ];
 
   return (
-    <div
+    <motion.div
+      variants={slideFromBottom}
+      initial="hidden"
+      animate="show"
       className="relative bg-[#d8d8d850] rounded-t-4xl rounded-br-4xl p-3 bg-no-repeat bg-bottom-right overflow-hidden"
       style={{
         backgroundImage: `url(${bgImg})`,
@@ -123,7 +127,7 @@ const RevenueOverview = () => {
           ))}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

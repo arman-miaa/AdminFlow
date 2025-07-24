@@ -7,9 +7,32 @@ import user2 from "../assets/user2.png"
 import user3 from "../assets/user3.jpg"
 import user4 from "../assets/user4.png"
 import { useEffect, useState } from "react";
+import {motion} from "framer-motion"
+import { slideFromBottom } from "../animations/slide";
+
+
+const AnimatedBar = (props) => {
+  const { x, y, width, height, fill } = props;
+
+  return (
+    <motion.rect
+      initial={{ height: 0, y: y + height }}
+      animate={{ height, y }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      x={x}
+      width={width}
+      fill={fill}
+      rx={4}
+      ry={4}
+    />
+  );
+};
 
 const OverviewPanel = () => {
-    const [isSmall, setIsSmall] = useState(false); 
+  const [isSmall, setIsSmall] = useState(false); 
+  
+
+  
   const data = [
     { name: 'Jan', value: 65 },
     { name: 'Feb', value: 45 },
@@ -24,6 +47,8 @@ const OverviewPanel = () => {
     { name: 'Nov', value: 75 },
     { name: 'Dec', value: 80 },
   ];
+
+  
 
  
 
@@ -55,7 +80,12 @@ const topPractitioners = [
           <DashboardSummaryStats />
 
           {/* Bottom Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 md:gap-2 mt-8  ">
+          <motion.div
+            variants={slideFromBottom}
+            initial="hidden"
+            animate="show"
+            className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 md:gap-2 mt-8  "
+          >
             {/* Top Practitioner */}
             <div className="bg-white/70 backdrop-blur-md border border-white/70 rounded-2xl md:rounded-4xl p-2 md:p-4 ">
               <div className="flex justify-between items-center mb-4 ">
@@ -193,12 +223,13 @@ const topPractitioners = [
                       fill="#3B82F6"
                       radius={[2, 2, 0, 0]}
                       barSize={30}
+                      shape={AnimatedBar} // <-- Animated bar
                     />
                   </BarChart>
                 </ResponsiveContainer>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>

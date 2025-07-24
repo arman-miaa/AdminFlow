@@ -9,11 +9,18 @@ import { TbWorld } from "react-icons/tb";
 import { BiBorderAll } from "react-icons/bi";
 import { HiMiniCalendarDateRange } from "react-icons/hi2";
 import { useState } from "react";
+import { slideFromTop } from "../animations/slide";
+import { motion } from "framer-motion"; 
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
   return (
-    <header className=" px-6 py-4 ">
+    <motion.header
+      variants={slideFromTop}
+      initial="hidden"
+      animate="show"
+      className=" px-6 py-4 "
+    >
       <div className="md:flex items-center justify-between hidden ">
         <div className="items-center flex  gap-2">
           <img
@@ -59,7 +66,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Right: User Image + Dropdown (only for mobile) */}
-   
+
       <div className="flex items-center justify-between md:hidden mb-4">
         {/* Search bar in center */}
         <div className="flex-1">
@@ -118,7 +125,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 };
 

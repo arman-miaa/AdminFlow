@@ -1,8 +1,12 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import GenderCard from "../shared/GenderCard";
 import { FaMale, FaFemale, FaChild } from "react-icons/fa";
+import {motion} from "framer-motion"
+import { slideFromBottom } from "../animations/slide";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 const AnalyticsCards = () => {
+   const { ref, inView } = useScrollAnimation();
   const ageGroupData = [
     { name: "0-18 years", value: 15, color: "#3B82F6" },
     { name: "19-35 years", value: 35, color: "#06B6D4" },
@@ -41,7 +45,13 @@ const AnalyticsCards = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+    <motion.div
+    ref={ref}
+       variants={slideFromBottom}
+       initial="hidden"
+       animate={inView ? "show" : "hidden"}
+      className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8"
+    >
       {/* Gender Card */}
       <GenderCard />
 
@@ -117,7 +127,7 @@ const AnalyticsCards = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -4,8 +4,12 @@ import DImg2 from "../assets/user2.png";
 import DImg3 from "../assets/user3.jpg";
 import DImg4 from "../assets/user4.png";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import {motion} from "framer-motion"
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
+import { slideFromBottom } from "../animations/slide";
 
 const TodaysBooking = () => {
+   const { ref, inView } = useScrollAnimation();
   const bookings = [
     {
       patient: "Md Ahmed Ullah",
@@ -75,7 +79,13 @@ const TodaysBooking = () => {
   ];
 
   return (
-    <div className="bg-white/70 border-white/30 backdrop-blur-lg rounded-2xl md:rounded-4xl shadow-md p-2 md:p-4   mt-8">
+    <motion.div
+      ref={ref}
+      variants={slideFromBottom}
+      initial="hidden"
+      animate={inView ? "show" : "hidden"}
+      className="bg-white/70 border-white/30 backdrop-blur-lg rounded-2xl md:rounded-4xl shadow-md p-2 md:p-4   mt-8"
+    >
       <h3 className="text-lg font-semibold text-gray-800 mb-4">
         Today's Booking
       </h3>
@@ -107,7 +117,9 @@ const TodaysBooking = () => {
                   <p className="text-[10px] md:text-sm font-medium text-gray-900">
                     {booking.patient}
                   </p>
-                  <p className=" text-[10px] not-last:md:text-xs text-gray-500">{booking.days}</p>
+                  <p className=" text-[10px] not-last:md:text-xs text-gray-500">
+                    {booking.days}
+                  </p>
                 </td>
                 <td className="md:px-4 md:py-3 text-sm text-gray-900">
                   <div className="flex items-center gap-2 sm:gap-3">
@@ -172,7 +184,7 @@ const TodaysBooking = () => {
           </button>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
