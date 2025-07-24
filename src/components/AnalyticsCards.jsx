@@ -46,7 +46,7 @@ const AnalyticsCards = () => {
       <GenderCard />
 
       {/* Age Group Card */}
-      <div className="bg-white/60 backdrop-blur-md border border-white/40 rounded-3xl p-6 shadow-lg w-full ">
+      <div className="bg-white/60 backdrop-blur-md border border-white/30 rounded-2xl md:rounded-4xl p-6 shadow-lg w-full ">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-lg font-semibold text-gray-800">Age Group</h3>
           <div className="w-3 h-3 bg-gray-400 rounded-full" />
@@ -98,7 +98,7 @@ const AnalyticsCards = () => {
       </div>
 
       {/* Client Happiness Score Card */}
-      <div className="card bg-white/70 border-white/70 rounded-4xl shadow-sm">
+      <div className="card bg-white/70 border-white/30 rounded-2xl md:rounded-4xl shadow-sm">
         <div className=" p-6 flex justify-between flex-col h-full">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Client Happiness Score

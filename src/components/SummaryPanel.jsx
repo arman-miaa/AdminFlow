@@ -9,6 +9,8 @@ import {
   
 } from "recharts";
 import RevenueForm from "../shared/RevenueForm";
+import { useEffect, useState } from "react";
+
 
 const revenueData = [
   { month: "Jan", totalRevenue: 45, newPatients: 35, oldPatients: 25 },
@@ -25,7 +27,11 @@ const revenueData = [
   { month: "Dec", totalRevenue: 80, newPatients: 70, oldPatients: 60 },
 ];
 
+
 const CustomTooltip = ({ active, payload, label }) => {
+
+
+  
   if (active && payload && payload.length) {
     return (
       <div className="bg-white shadow-md rounded-lg p-3 text-sm">
@@ -47,44 +53,55 @@ const CustomTooltip = ({ active, payload, label }) => {
 };
 
 const SummaryPanel = () => {
+    const [isSmall, setIsSmall] = useState(false);
+
+    useEffect(() => {
+      const handleResize = () => {
+        setIsSmall(window.innerWidth < 768);
+      };
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
   return (
-    <div className=" p-6">
+    <div className=" md:p-6  mt-12 md:mt-4">
       <div className="">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Revenue Summary Chart */}
           <div className="lg:col-span-2">
             <div className="card  bg-white/70 border border-white/30 backdrop-blur-lg shadow-md rounded-2xl">
-              <div className="card-body p-6">
-                <div className="flex justify-between items-center mb-4">
+              <div className="card-body px-0 md:p-6 ">
+                {/* heading */}
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-4  gap-2 pl-3 md:pl-0">
                   <h3 className="text-lg font-semibold text-gray-900">
                     Revenue Summary
                   </h3>
-                  <div className="flex items-center gap-6">
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-                        <span className="text-sm text-gray-700">
-                          Total Revenue
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
-                        <span className="text-sm text-gray-700">
-                          New Patients
-                        </span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-3 h-3 bg-cyan-500 rounded-full"></div>
-                        <span className="text-sm text-gray-700">
-                          Old Patients
-                        </span>
-                      </div>
+
+                  <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+                      <span className="text-sm text-gray-700">
+                        Total Revenue
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+                      <span className="text-sm text-gray-700">
+                        New Patients
+                      </span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <div className="w-3 h-3 bg-cyan-500 rounded-full"></div>
+                      <span className="text-sm text-gray-700">
+                        Old Patients
+                      </span>
                     </div>
                   </div>
                 </div>
 
                 {/* Chart */}
-                <div className="h-66">
+                <div className="h-60 sm:h-72 md:h-66 px-2 sm:px-4 md:px-0">
                   <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={revenueData}>
                       <XAxis
@@ -93,7 +110,12 @@ const SummaryPanel = () => {
                         tickLine={false}
                         fontSize={12}
                         stroke="#999"
+                        interval={0}
+                        angle={isSmall ? -60 : 0}
+                        textAnchor="end"
+                        height={isSmall ? 30 : 30}
                       />
+
                       <YAxis
                         domain={[0, 100]}
                         tickCount={6}
@@ -101,10 +123,9 @@ const SummaryPanel = () => {
                         tickLine={false}
                         fontSize={12}
                         stroke="#999"
+                        width={30}
                       />
                       <Tooltip content={<CustomTooltip />} />
-
-                      {/* Legend removed */}
 
                       <Line
                         type="monotone"
