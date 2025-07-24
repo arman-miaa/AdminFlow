@@ -1,15 +1,4 @@
-// Sidebar.tsx
-
-import {
-  MdDashboard,
-  MdPeople,
-  MdCalendarToday,
-  MdLocalHospital,
-  MdReceipt,
-  MdMessage,
-  MdAssessment,
-  MdSettings,
-} from "react-icons/md";
+import {  MdDashboard,  MdPeople,  MdCalendarToday,  MdLocalHospital,  MdReceipt,  MdMessage,  MdAssessment,  MdSettings,} from "react-icons/md";
 import { useState } from "react";
 import { NavLink } from "react-router";
 import logo from "../assets/logo.png";
@@ -20,21 +9,7 @@ import { slideFromLeft } from "../animations/slide";
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const menuItems = [
-    { icon: MdDashboard, label: "Dashboard", path: "/" },
-    { icon: MdPeople, label: "Patients", path: "/patients" },
-    { icon: MdCalendarToday, label: "Appointments", path: "/appointments" },
-    { icon: MdLocalHospital, label: "EMS", path: "/ems" },
-    { icon: MdReceipt, label: "Invoicing", path: "/invoicing" },
-    { icon: MdMessage, label: "Communications", path: "/communications" },
-    {
-      icon: MdAssessment,
-      label: "Reports",
-      path: "/reports",
-      hasNotification: true,
-    },
-    { icon: MdSettings, label: "Settings", path: "/settings" },
-  ];
+
 
   const handleLinkClick = () => setIsOpen(false);
 

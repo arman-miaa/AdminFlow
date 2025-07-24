@@ -9,6 +9,7 @@ import user4 from "../assets/user4.png"
 import { useEffect, useState } from "react";
 import {motion} from "framer-motion"
 import { slideFromBottom } from "../animations/slide";
+import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 
 const AnimatedBar = (props) => {
@@ -30,7 +31,7 @@ const AnimatedBar = (props) => {
 
 const OverviewPanel = () => {
   const [isSmall, setIsSmall] = useState(false); 
-  
+  const { ref, inView } = useScrollAnimation();
 
   
   const data = [
@@ -81,9 +82,11 @@ const topPractitioners = [
 
           {/* Bottom Section */}
           <motion.div
+          
+            ref={ref}
             variants={slideFromBottom}
             initial="hidden"
-            animate="show"
+            animate={inView ? "show" : "hidden"}
             className="grid grid-cols-1 lg:grid-cols-[1fr_2fr] gap-6 md:gap-2 mt-8  "
           >
             {/* Top Practitioner */}
